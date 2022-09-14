@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{%block title%} {{title}} | {{block.super}} {%endblock%}
+
+{% block content %}
+<div class="grid text-center">
+    <H1>Игра</H1>
+</div>
+<h5>
+    Задумано тайное слово 🧐
+    <br>
+</h5>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"> №</th>
+        <th scope="col">Слово</th>
+        <th scope="col">Быки</th>
+        <th scope="col">Коровы</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in all_attempts %}
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.word}}</td>
+        <td>{{item.bulls}}</td>
+        <td>{{item.cows}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+
+<form action="{%url 'game'%}" method="post">
+    {% csrf_token %}
+    {{form.non_field.errors}}
+    <div class="form-group">
+        <label for="{{form.word.id_for_label}}"> Слово: </label>
+        {{form.word}}
+        <div class="invalid-ffeedback alert-danger">
+                {{form.word.errors}}
+        </div>
+    </div>
+    {% if win %}
+    <div class="grid text-center">
+    <H3>Поздравляю!!! 🥳 Вы победили! 🤩 😁 💯</H3>
+</div>
+    <button class="btn btn-primary btn-block" name="new_game" value=True>начать заново</button>
+    {% else %}
+    <button type="submit" class="btn btn-primary btn-block"> Это слово?</button>
+    {% endif %}
+</form>
+{% endblock %}

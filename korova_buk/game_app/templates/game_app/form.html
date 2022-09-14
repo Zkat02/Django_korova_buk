@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{%block title%} form | {{block.super}} {%endblock%}
+
+{% block content %}
+
+<form action="{%url 'form'%}" method="post">
+
+    {% csrf_token %}
+
+    {{form.non_field.errors}}
+
+    <div class="form-group">
+        <label for="{{form.word.id_for_label}}"> Слово: </label>
+        {{form.word}}
+        <div class="invalid-ffeedback">
+            {{form.word.errors}}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block"> Это слово?</button>
+</form>
+{% endblock %}

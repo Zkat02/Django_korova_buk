@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{%block title%} {{title}} | {{block.super}} {%endblock%}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+
+        <H1>Правила игры.</H1>
+
+        <h4>
+            Задумано тайное число из 4х чисел. Вы вводите комбинации одну за другой, пока не отгадает всю
+            последовательность.
+            <br>
+            Например:<br>
+            Тайное число это «3219».<br>
+            Попытка: «2310».<br>
+            Результат: две «коровы» (две цифры: «2» и «3» — угаданы на неверных позициях) и один «бык» (одна цифра «1»
+            угадана
+            вплоть до позиции).<br>
+        </h4>
+
+    </div>
+    <div class="col-md-9">
+
+        <div class="grid text-center">
+            <H1>Игра</H1>
+        </div>
+        <h4>
+            Задумано тайное число.
+            <br>
+        </h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col"> №</th>
+                <th scope="col">Слово</th>
+                <th scope="col">Быки</th>
+                <th scope="col">Коровы</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in input_words %}
+            <tr>
+                <th scope="row">{{item.pk}}</th>
+                <td>{{item.word}}</td>
+                <td>{{item.buls}}</td>
+                <td>{{item.cows}}</td>
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
