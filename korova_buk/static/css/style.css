@@ -1,3 +1,56 @@
-body{
-background-color: #fefefe
+.navbar{
+ background:#F97300;
 }
+.nav-link , .navbar-brand{
+ color: #f4f4f4;
+ cursor: pointer;
+}
+.nav-link{
+ margin-right: 1em !important;
+}
+.nav-link:hover{
+ background: #dc3545;
+ color: #f97300;
+}
+.navbar-collapse{
+ justify-content: flex-end;
+}
+.navbar-toggler{
+  background:#fff !important;
+}
+
+body {
+    background-image: linear-gradient(rgb(249 115 0 / 30%), rgb(0 0 0 / 90%)),
+                  url(../images/pict_cow_bull.png);
+    background-size: cover;
+    background-position: center;
+}
+.col-md-3, .col-md-2 {
+    background:rgb(0 0 0 / 80%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Consolas, monaco, monospace;
+    color: #788693;
+}
+
+.letters {
+margin-top: 20%;
+}
+
+.mt-3, .my-3 {
+margin-top: 0!important;
+}
+
+footer{
+    background-color: #0e0906!important;
+}
+.text-muted {
+    color: #f97300!important;
+}
+
+.container-fluid {
+    padding-left: 25px;
+}
+.row{
+padding-top:20px;}

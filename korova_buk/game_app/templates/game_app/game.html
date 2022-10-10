@@ -10,6 +10,7 @@
     Задумано тайное слово 🧐
     <br>
 </h5>
+<div class="scroll-table">
 <table class="table">
     <thead>
     <tr>
@@ -19,6 +20,9 @@
         <th scope="col">Коровы</th>
     </tr>
     </thead>
+    </table>
+    <div class="scroll-table-body">
+        <table>
     <tbody>
     {% for item in all_attempts %}
     <tr>
@@ -29,7 +33,10 @@
     </tr>
     {%endfor%}
     </tbody>
+        </table>
+    </div>
 </table>
+</div>
 
 <form action="{%url 'game'%}" method="post">
     {% csrf_token %}
